@@ -8,8 +8,10 @@ import AppWrapper from '../components/AppWrapper';
 function MyApp({ Component, pageProps:{session,...pageProps} }) {
   
   return (
-    <PayPalScriptProvider options={{ "client-id": process.env.CLIENT_ID ,components: "buttons",
-    currency: "USD"}}>
+    <PayPalScriptProvider options={{ 
+      "client-id":process.env.client_id,
+      components: "buttons",
+      currency: "USD"}}>
           <SessionProvider session={session}>
             <Provider store={store}>
                <AppWrapper>

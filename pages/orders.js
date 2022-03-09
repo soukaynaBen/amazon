@@ -114,30 +114,34 @@ export default function Orders() {
        const items=useSelector(selectItems)
        const [message,setMessage]=useState("")
        const [toggle,setToggle]=useState(false)
-       const Product= ({item,ind}) =>(<div className='grid grid-cols-5' key={ind} id={ind}>
-       <Image src={item.image} height={200} width={200} objectFit="contain" alt={item.title}/>
-       <div className='col-span-3 mx-5'>
-        <p>{item.title}</p>
-        <div className='flex'>
-            {Array(item.rate).fill().map((_,i)=>(
-            <StarIcon className='h-5 text-yellow-500' key={i}/>
-             ))}   
-        </div>
-        <p className='text-xs my-2 line-clamp-3'>
-            {item.description}
-        </p>
 
-            <CurrencyFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'£'}  />
-       {
-         item.hasPrime && (
-           <div className='flex items-center space-x-2 '>
-             <img loading='lazy' className='w-12' src="https://links.papareact.com/fdw" alt="" />
-             <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
-           </div>
-         )
-       }
-       </div>
-       </div>)
+       const Product= ({item,ind}) =>(
+            <div className='grid grid-cols-5' key={ind} id={ind}>
+                    <Image src={item.image} height={200} width={200} objectFit="contain" alt={item.title}/>
+                    <div className='col-span-3 mx-5'>
+                        <p>{item.title}</p>
+                        <div className='flex'>
+                            {Array(item.rate).fill().map((_,i)=>(
+                            <StarIcon className='h-5 text-yellow-500' key={i}/>
+                            ))}   
+                        </div>
+                        <p className='text-xs my-2 line-clamp-3'>
+                            {item.description}
+                        </p>
+
+                            <CurrencyFormat value={item.price} displayType={'text'} thousandSeparator={true} prefix={'£'}  />
+                    {
+                        item.hasPrime && (
+                        <div className='flex items-center space-x-2 '>
+                            <img loading='lazy' className='w-12' src="https://links.papareact.com/fdw" alt="" />
+                            <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
+                        </div>
+                        )
+                    }
+                    </div>
+            </div>
+       )
+
 	return (<>
                 <Header/>
                 { toggle &&
@@ -153,7 +157,7 @@ export default function Orders() {
                 <div className="relative z-10 " style={{ maxWidth: "750px", minHeight: "200px" }}>
                         <ButtonWrapper
                             currency={currency}
-                            showSpinner={false}
+                            showSpinner={true}
                             setMessage={setMessage}
                             setToggle={setToggle}
                             />
