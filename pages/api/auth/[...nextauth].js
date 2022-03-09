@@ -8,8 +8,8 @@ export default NextAuth({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    NEXTAUTH_URL=process.env.NEXTAUTH_URL,
-    NEXTAUTH_SECRET=process.env.NEXTAUTH_SECRET 
     // ...add more providers here
   ],
+  NEXTAUTH_URL:process.env.NEXTAUTH_URL,
+  NEXTAUTH_SECRET:process.env.NEXTAUTH_SECRET
 })
