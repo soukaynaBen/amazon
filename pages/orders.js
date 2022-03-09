@@ -41,8 +41,8 @@ import {
     usePayPalScriptReducer
 } from "@paypal/react-paypal-js";
 import { useSession } from "next-auth/react";
-import { useDispatch, useSelector } from "react-redux";
-import { initializeBasket, selectItems, selectTotal } from "../features/basketSlice";
+import {  useSelector } from "react-redux";
+import {  selectItems, selectTotal } from "../features/basketSlice";
 import Header from "../components/Header";
 import Image from "next/image";
 import {  StarIcon } from "@heroicons/react/solid";
